@@ -19,12 +19,11 @@
 		"allowJs": true /* Allow javascript files to be compiled. Useful when migrating JS to TS */,
 		// "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
 		"plugins": [{ "name": "typescript-plugin-css-modules" }],
-		"baseUrl": "./",
+		"baseUrl": "./src",
 		// Важно держать конфиг элиасов тут в соответствии с конфигом элиасов в вебпаке (webpack.common.js - resolve.alias) и с конфигом сторибука (.storybook/main.ts - webpackFinal)
 		"paths": {
-			"src/*": ["src/*"],
-			"fonts/*": ["src/fonts/*"],
-			"components/*": ["src/components/*"]
+			"components/*": ["components/*"],
+			"fonts/*": ["fonts/*"]
 		}
 	},
 	"outDir": "./dist/",

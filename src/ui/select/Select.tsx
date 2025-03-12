@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
 import type { MouseEventHandler } from 'react';
 import clsx from 'clsx';
-import { OptionType } from 'src/constants/articleProps';
-import { Text } from 'src/ui/text';
-import arrowDown from 'src/images/arrow-down.svg';
+import { OptionType } from '../../constants/articleProps';
+import { Text } from '../text';
+import arrowDown from '../../images/arrow-down.svg';
 import { Option } from './Option';
 import { isFontFamilyClass } from './helpers/isFontFamilyClass';
 import { useEnterSubmit } from './hooks/useEnterSubmit';

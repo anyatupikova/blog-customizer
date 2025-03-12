@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { OptionType } from 'src/constants/articleProps';
+import { OptionType } from '../../../constants/articleProps';
 
 type UseEnterSubmit = {
 	onChange?: (option: OptionType) => void;
