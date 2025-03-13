@@ -60,17 +60,21 @@ export const ArticleParamsForm = ({
 			setContentWidth(defaultArticleState.contentWidth);
 	};
 
-	const ref = useRef<HTMLDivElement | null>(null);
+	const sidebarRef = useRef<HTMLDivElement | null>(null);
 
-	// Обработчик клика вне панели кастомизаци
+	// Обработчик клика вне панели кастомизации
 	useOutsideClickClose({
 		isOpen: isSidebarOpen,
-		rootRef: ref,
-		onClose: () => setSidebarIsOpen(false),
+		rootRef: sidebarRef,
+		onClose: () => {
+			if (isSidebarOpen) {
+				setSidebarIsOpen(false);
+			}
+		},
 	});
 
 	return (
-		<div ref={ref}>
+		<div ref={sidebarRef}>
 			<ArrowButton
 				onClick={() => setSidebarIsOpen(!isSidebarOpen)}
 				isOpen={isSidebarOpen}
