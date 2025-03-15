@@ -28,7 +28,7 @@ export const ArticleParamsForm = ({
 	articleState,
 	setArticleState,
 }: ArticleParamsFormProps) => {
-	const [isSidebarOpen, setSidebarIsOpen] = useState(false);
+	const [isSidebarOpen, setSidebarIsOpen] = useState(false); // Состояние открытия сайдбара
 	const [fontFamily, setFontFamily] = useState(articleState.fontFamilyOption);
 	const [fontSize, setFontsize] = useState(articleState.fontSizeOption);
 	const [fontColor, setFontColor] = useState(articleState.fontColor);
@@ -60,28 +60,24 @@ export const ArticleParamsForm = ({
 			setContentWidth(defaultArticleState.contentWidth);
 	};
 
-	const sidebarRef = useRef<HTMLDivElement | null>(null);
+	const sidebarRef = useRef<HTMLDivElement | null>(null); // Ссылка на контейнер сайдбара
 
 	// Обработчик клика вне панели кастомизации
 	useOutsideClickClose({
-		isOpen: isSidebarOpen,
-		rootRef: sidebarRef,
-		onClose: () => {
-			if (isSidebarOpen) {
-				setSidebarIsOpen(false);
-			}
-		},
+		isOpen: isSidebarOpen, // Передаем состояние открытия сайдбара
+		rootRef: sidebarRef, // Передаем ссылку на контейнер
+		onClose: () => setSidebarIsOpen(false), // Колбэк для закрытия сайдбара
 	});
 
 	return (
 		<div ref={sidebarRef}>
 			<ArrowButton
-				onClick={() => setSidebarIsOpen(!isSidebarOpen)}
-				isOpen={isSidebarOpen}
+				onClick={() => setSidebarIsOpen(!isSidebarOpen)} // Переключаем состояние сайдбара
+				isOpen={isSidebarOpen} // Передаем состояние открытия
 			/>
 			<aside
 				className={clsx(styles.container, {
-					[styles.container_open]: isSidebarOpen,
+					[styles.container_open]: isSidebarOpen, // Условный класс для открытого сайдбара
 				})}>
 				<form
 					className={styles.form}
