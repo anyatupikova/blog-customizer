@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import type { MouseEventHandler } from 'react';
 import clsx from 'clsx';
-import { OptionType } from 'src/constants/articleProps';
-import { Text } from 'src/ui/text';
+import { OptionType } from '../../constants/articleProps';
+import { Text } from '../text';
 import { isFontFamilyClass } from './helpers/isFontFamilyClass';
 import { useEnterOptionSubmit } from './hooks/useEnterOptionSubmit';
 
@@ -32,9 +32,14 @@ export const Option = (props: OptionProps) => {
 		onClick,
 	});
 
+	const additionalClassName =
+		optionClassName && styles.hasOwnProperty(optionClassName)
+			? styles[optionClassName as keyof typeof styles]
+			: '';
+
 	return (
 		<li
-			className={clsx(styles.option, styles[optionClassName || ''])}
+			className={clsx(styles.option, additionalClassName)}
 			value={value}
 			onClick={handleClick(value)}
 			tabIndex={0}
